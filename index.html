@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tidewell — Async standups your team will actually read</title>
+  <meta name="description" content="Tidewell replaces status meetings with short async check-ins, a live team board, and weekly summaries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Icon sprite (Lucide-style, 2px stroke) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/><path d="M2 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/><path d="M2 7c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+  </svg>
+
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Tidewell home">
+        <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg></span>
+        Tidewell
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-ghost nav-mobile-only" href="#signup">Sign in</a>
+        <a class="btn btn-primary nav-mobile-only" href="#signup">Start free</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <a class="btn btn-ghost nav-desktop-only" href="#signup">Sign in</a>
+        <a class="btn btn-primary nav-desktop-only" href="#signup">Start free</a>
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon icon-close" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Async standups for remote teams</p>
+          <h1>Skip the status meeting. Keep everyone in sync.</h1>
+          <p class="lead">Tidewell replaces daily standups with two-minute written check-ins, a live team board, and a weekly summary written for you. Your team gets back three hours a week.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-accent btn-lg" href="#signup">
+              Start free for 14 days
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn-outline btn-lg" href="#how">See how it works</a>
+          </div>
+          <ul class="hero-points" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>No credit card</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Set up in 5 minutes</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Free up to 5 people</li>
+          </ul>
+        </div>
+
+        <!-- Product mockup: static, readable content rather than a video -->
+        <figure class="mockup" aria-label="Tidewell team board showing today's check-ins">
+          <div class="mockup-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="mockup-body">
+            <div class="mockup-head">
+              <div>
+                <p class="mockup-title">Product team · Today</p>
+                <p class="mockup-sub">6 of 7 checked in</p>
+              </div>
+              <span class="pill pill-ok"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>On track</span>
+            </div>
+            <ul class="checkins" role="list">
+              <li class="checkin">
+                <span class="avatar" style="--av: var(--av-1)" aria-hidden="true">MR</span>
+                <div>
+                  <p class="checkin-name">Maya R. <span class="muted">· 9:04</span></p>
+                  <p>Shipped the billing page redesign. Next: QA pass with Leo.</p>
+                </div>
+              </li>
+              <li class="checkin">
+                <span class="avatar" style="--av: var(--av-2)" aria-hidden="true">LO</span>
+                <div>
+                  <p class="checkin-name">Leo O. <span class="muted">· 9:31</span></p>
+                  <p>Writing tests for the export API. About 60% done.</p>
+                </div>
+              </li>
+              <li class="checkin">
+                <span class="avatar" style="--av: var(--av-3)" aria-hidden="true">SK</span>
+                <div>
+                  <p class="checkin-name">Sam K. <span class="muted">· 10:12</span></p>
+                  <p>Waiting on design sign-off for onboarding step 3.</p>
+                  <span class="pill pill-warn"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Blocked</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Social proof -->
+    <section class="logos" aria-labelledby="logos-title">
+      <div class="container">
+        <h2 id="logos-title" class="logos-title">Used by 4,000+ distributed teams</h2>
+        <ul class="logo-row" role="list">
+          <li>Northwind</li><li>Lumen&amp;Co</li><li>Quarry</li><li>Fieldnote</li><li>Brightpath</li><li>Orbitly</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Features</p>
+          <h2 id="features-title">Everything a standup does, minus the meeting</h2>
+          <p class="lead">Written updates that fit around deep work and across time zones.</p>
+        </div>
+        <ul class="feature-grid" role="list">
+          <li class="card feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+            <h3>Two-minute check-ins</h3>
+            <p>Three short prompts, sent at each person's local morning. Answer from Slack, email, or the app.</p>
+          </li>
+          <li class="card feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-layout"/></svg></span>
+            <h3>Live team board</h3>
+            <p>See every update in one place, grouped by project, with who's checked in and who hasn't.</p>
+          </li>
+          <li class="card feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-flag"/></svg></span>
+            <h3>Blockers surface first</h3>
+            <p>Anything marked blocked goes to the top and pings the right person, so it doesn't sit for a day.</p>
+          </li>
+          <li class="card feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span>
+            <h3>Weekly summaries</h3>
+            <p>Every Friday, a one-page recap of what shipped, what slipped, and what's next, ready to share.</p>
+          </li>
+          <li class="card feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-plug"/></svg></span>
+            <h3>Works with your tools</h3>
+            <p>Links issues from Jira, Linear, and GitHub automatically, so updates point to real work.</p>
+          </li>
+          <li class="card feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span>
+            <h3>Built for time zones</h3>
+            <p>Nobody has to wake up early for a call. Updates are waiting when each teammate starts their day.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section-alt" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title">Up and running before your next standup</h2>
+        </div>
+        <ol class="steps" role="list">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Connect your workspace</h3>
+            <p>Sign in with Slack or Google. Tidewell imports your team and their time zones.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Pick your prompts</h3>
+            <p>Start with the classic three questions or write your own. Choose which days to ask.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Cancel the meeting</h3>
+            <p>Updates flow into the board and your channel. The Friday summary writes itself.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" aria-labelledby="quotes-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Customers</p>
+          <h2 id="quotes-title">Teams that stopped meeting about meetings</h2>
+        </div>
+        <ul class="quote-grid" role="list">
+          <li class="card quote">
+            <blockquote><p>“We cut our daily call and nobody misses it. I actually know more about what the team is doing now.”</p></blockquote>
+            <p class="quote-by"><span class="avatar" style="--av: var(--av-1)" aria-hidden="true">PN</span><span><strong>Priya N.</strong><br><span class="muted">Engineering Manager, Quarry</span></span></p>
+          </li>
+          <li class="card quote">
+            <blockquote><p>“We're spread over nine time zones. Tidewell is the first thing that made standups fair for everyone.”</p></blockquote>
+            <p class="quote-by"><span class="avatar" style="--av: var(--av-2)" aria-hidden="true">DA</span><span><strong>Daniel A.</strong><br><span class="muted">Head of Product, Fieldnote</span></span></p>
+          </li>
+          <li class="card quote">
+            <blockquote><p>“The Friday summary goes straight to our leadership channel. That alone saves me an hour a week.”</p></blockquote>
+            <p class="quote-by"><span class="avatar" style="--av: var(--av-3)" aria-hidden="true">JT</span><span><strong>Jess T.</strong><br><span class="muted">COO, Brightpath</span></span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section section-alt" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Pricing</p>
+          <h2 id="pricing-title">Simple pricing that grows with your team</h2>
+          <fieldset class="billing-toggle">
+            <legend class="sr-only">Billing period</legend>
+            <input type="radio" name="billing" id="bill-monthly" value="monthly">
+            <label for="bill-monthly">Monthly</label>
+            <input type="radio" name="billing" id="bill-annual" value="annual" checked>
+            <label for="bill-annual">Annual <span class="save">Save 20%</span></label>
+          </fieldset>
+        </div>
+
+        <ul class="price-grid" role="list">
+          <li class="card price">
+            <h3>Starter</h3>
+            <p class="price-desc">For small teams trying async.</p>
+            <p class="price-amount"><span class="amount">$0</span> <span class="per">free forever</span></p>
+            <a class="btn btn-outline btn-block" href="#signup">Get started</a>
+            <ul class="price-list" role="list">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Up to 5 people</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Daily check-ins</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Team board</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Slack integration</li>
+            </ul>
+          </li>
+          <li class="card price price-featured">
+            <p class="badge">Most popular</p>
+            <h3>Team</h3>
+            <p class="price-desc">For teams replacing their standup.</p>
+            <p class="price-amount"><span class="amount" data-monthly="$8" data-annual="$6">$6</span> <span class="per">per person / month<span class="billed" data-monthly="billed monthly" data-annual="billed annually">billed annually</span></span></p>
+            <a class="btn btn-accent btn-block" href="#signup">Start 14-day trial</a>
+            <ul class="price-list" role="list">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Unlimited people</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Blocker alerts</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Weekly summaries</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Jira, Linear &amp; GitHub</li>
+            </ul>
+          </li>
+          <li class="card price">
+            <h3>Business</h3>
+            <p class="price-desc">For larger orgs with admin needs.</p>
+            <p class="price-amount"><span class="amount" data-monthly="$15" data-annual="$12">$12</span> <span class="per">per person / month<span class="billed" data-monthly="billed monthly" data-annual="billed annually">billed annually</span></span></p>
+            <a class="btn btn-outline btn-block" href="#signup">Contact sales</a>
+            <ul class="price-list" role="list">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Everything in Team</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>SSO &amp; SCIM</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Audit log</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Priority support</li>
+            </ul>
+          </li>
+        </ul>
+        <p class="sr-only" aria-live="polite" id="billing-status"></p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container container-narrow">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Questions, answered</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Do we have to stop having meetings?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>No. Most teams drop the daily standup and keep a weekly sync for discussion. Tidewell handles the status part so meetings can be about decisions.</p>
+          </details>
+          <details>
+            <summary>How long does a check-in take?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>About two minutes. The default prompts are what you did, what you're doing next, and whether anything is blocking you.</p>
+          </details>
+          <details>
+            <summary>Can people answer without opening Tidewell?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Yes. People can reply straight from Slack or email, and the answer shows up on the board.</p>
+          </details>
+          <details>
+            <summary>What happens when the trial ends?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>If you don't add a payment method, your workspace moves to the free Starter plan. You keep all your history.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta" id="signup" aria-labelledby="cta-title">
+      <div class="container cta-inner">
+        <h2 id="cta-title">Give your team its mornings back</h2>
+        <p>Start a free 14-day trial of the Team plan. No credit card needed.</p>
+        <form class="signup-form" id="signup-form" novalidate>
+          <div class="field">
+            <label for="email">Work email</label>
+            <div class="field-row">
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="email-error" placeholder="you@company.com">
+              <button class="btn btn-accent" type="submit">Start free trial</button>
+            </div>
+            <p class="field-error" id="email-error" hidden></p>
+          </div>
+          <p class="form-success" id="form-success" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#top" aria-label="Tidewell, back to top">
+        <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg></span>
+        Tidewell
+      </a>
+      <nav aria-label="Footer">
+        <ul class="footer-links" role="list">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#signup">Contact</a></li>
+        </ul>
+      </nav>
+      <p class="muted">© 2026 Tidewell. A demo landing page.</p>
+    </div>
+  </footer>
+</body>
+</html>
