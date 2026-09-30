@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parlor Soda Co. | Small-batch soda made with real fruit</title>
+  <meta name="description" content="Small-batch sodas made with real fruit juice and cane sugar. Shop six flavors or build your own 12-pack.">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <!-- Phosphor Icons (regular), MIT -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="arrow-right" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
+    <symbol id="check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
+    <symbol id="drop" viewBox="0 0 256 256"><path d="M174,47.75a254.19,254.19,0,0,0-41.45-38.3,8,8,0,0,0-9.18,0A254.19,254.19,0,0,0,82,47.75C54.51,79.32,40,112.6,40,144a88,88,0,0,0,176,0C216,112.6,201.49,79.32,174,47.75ZM128,216a72.08,72.08,0,0,1-72-72c0-57.23,55.47-105,72-118,16.53,13,72,60.75,72,118A72.08,72.08,0,0,1,128,216Zm55.89-62.66a57.6,57.6,0,0,1-46.56,46.55A8.75,8.75,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68Z"/></symbol>
+    <symbol id="flask" viewBox="0 0 256 256"><path d="M221.69,199.77,160,96.92V40h8a8,8,0,0,0,0-16H88a8,8,0,0,0,0,16h8V96.92L34.31,199.77A16,16,0,0,0,48,224H208a16,16,0,0,0,13.72-24.23ZM110.86,103.25A7.93,7.93,0,0,0,112,99.14V40h32V99.14a7.93,7.93,0,0,0,1.14,4.11L183.36,167c-12,2.37-29.07,1.37-51.75-10.11-15.91-8.05-31.05-12.32-45.22-12.81ZM48,208l28.54-47.58c14.25-1.74,30.31,1.85,47.82,10.72,19,9.61,35,12.88,48,12.88a69.89,69.89,0,0,0,19.55-2.7L208,208Z"/></symbol>
+    <symbol id="leaf" viewBox="0 0 256 256"><path d="M223.45,40.07a8,8,0,0,0-7.52-7.52C139.8,28.08,78.82,51,52.82,94a87.09,87.09,0,0,0-12.76,49c.57,15.92,5.21,32,13.79,47.85l-19.51,19.5a8,8,0,0,0,11.32,11.32l19.5-19.51C81,210.73,97.09,215.37,113,215.94q1.67.06,3.33.06A86.93,86.93,0,0,0,162,203.18C205,177.18,227.93,116.21,223.45,40.07ZM153.75,189.5c-22.75,13.78-49.68,14-76.71.77l88.63-88.62a8,8,0,0,0-11.32-11.32L65.73,179c-13.19-27-13-54,.77-76.71,22.09-36.47,74.6-56.44,141.31-54.06C210.2,114.89,190.22,167.41,153.75,189.5Z"/></symbol>
+    <symbol id="map-pin" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></symbol>
+    <symbol id="minus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"/></symbol>
+    <symbol id="moon" viewBox="0 0 256 256"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></symbol>
+    <symbol id="orange-slice" viewBox="0 0 256 256"><path d="M248,80H8a8,8,0,0,0-8,8,128,128,0,0,0,256,0A8,8,0,0,0,248,80ZM77.4,149.91l42.6-42.6V167.6A79.59,79.59,0,0,1,77.4,149.91ZM66.09,138.6A79.59,79.59,0,0,1,48.4,96h60.29ZM136,107.31l42.6,42.6A79.59,79.59,0,0,1,136,167.6Zm53.91,31.29L147.31,96H207.6A79.59,79.59,0,0,1,189.91,138.6ZM128,200A112.15,112.15,0,0,1,16.28,96H32.34a96,96,0,0,0,191.32,0h16.06A112.15,112.15,0,0,1,128,200Z"/></symbol>
+    <symbol id="plus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></symbol>
+    <symbol id="recycle" viewBox="0 0 256 256"><path d="M96,208a8,8,0,0,1-8,8H40a24,24,0,0,1-20.77-36l34.29-59.25L39.47,124.5A8,8,0,1,1,35.33,109l32.77-8.77a8,8,0,0,1,9.8,5.66l8.79,32.77A8,8,0,0,1,81,148.5a8.37,8.37,0,0,1-2.08.27,8,8,0,0,1-7.72-5.93l-3.8-14.15L33.11,188A8,8,0,0,0,40,200H88A8,8,0,0,1,96,208Zm140.73-28-23.14-40a8,8,0,0,0-13.84,8l23.14,40A8,8,0,0,1,216,200H147.31l10.34-10.34a8,8,0,0,0-11.31-11.32l-24,24a8,8,0,0,0,0,11.32l24,24a8,8,0,0,0,11.31-11.32L147.31,216H216a24,24,0,0,0,20.77-36ZM128,32a7.85,7.85,0,0,1,6.92,4l34.29,59.25-14.08-3.78A8,8,0,0,0,151,106.92l32.78,8.79a8.23,8.23,0,0,0,2.07.27,8,8,0,0,0,7.72-5.93l8.79-32.79a8,8,0,1,0-15.45-4.14l-3.8,14.17L148.77,28a24,24,0,0,0-41.54,0L84.07,68a8,8,0,0,0,13.85,8l23.16-40A7.85,7.85,0,0,1,128,32Z"/></symbol>
+    <symbol id="shopping-bag" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM176,88a48,48,0,0,1-96,0,8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0Z"/></symbol>
+    <symbol id="sun" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></symbol>
+    <symbol id="x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></symbol>
+  </svg>
+
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Parlor Soda Co. home">
+        <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="var(--accent)"/><path d="M14 30V10h8a6 6 0 0 1 0 12h-8" fill="none" stroke="var(--on-accent)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Parlor</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#flavors">Flavors</a></li>
+        <li><a href="#pack">Build a pack</a></li>
+        <li><a href="#stores">Where to buy</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme" type="button" aria-label="Switch to dark theme">
+          <svg class="i i-moon" aria-hidden="true"><use href="#moon"/></svg>
+          <svg class="i i-sun" aria-hidden="true"><use href="#sun"/></svg>
+        </button>
+        <button class="bag" id="bag" type="button" aria-label="Bag, 0 items">
+          <svg class="i" aria-hidden="true"><use href="#shopping-bag"/></svg>
+          <span class="bag-count" id="bag-count" aria-hidden="true">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <h1>Soda the way it used to taste.</h1>
+        <p>Small-batch sodas made with real fruit juice, cane sugar and nothing you need to look up.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#flavors">Shop flavors <svg class="i" aria-hidden="true"><use href="#arrow-right"/></svg></a>
+          <a class="btn btn-ghost" href="#pack">Build a pack</a>
+        </div>
+      </div>
+      <div class="hero-cans" aria-hidden="true">
+        <div class="can can-lg" data-flavor="cherry"></div>
+        <div class="can can-lg" data-flavor="orange"></div>
+        <div class="can can-lg" data-flavor="yuzu"></div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+
+    <section class="section" id="flavors" aria-labelledby="flavors-title">
+      <div class="container shelf-head">
+        <h2 id="flavors-title">Six flavors, all year round.</h2>
+        <div class="shelf-nav">
+          <button class="icon-btn round" type="button" data-shelf="-1" aria-label="Previous flavors"><svg class="i flip" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+          <button class="icon-btn round" type="button" data-shelf="1" aria-label="Next flavors"><svg class="i" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+        </div>
+      </div>
+      <ul class="shelf" id="shelf" role="list" aria-label="Flavors"></ul>
+    </section>
+
+    <section class="section" aria-labelledby="inside-title">
+      <div class="container">
+        <h2 id="inside-title" class="narrow">What goes in every can.</h2>
+        <div class="bento">
+          <article class="cell cell-juice">
+            <svg class="i-lg" aria-hidden="true"><use href="#orange-slice"/></svg>
+            <h3>Real fruit juice</h3>
+            <p>Every flavor starts with pressed juice or slow-steeped spices, never flavor syrup.</p>
+          </article>
+          <article class="cell cell-sugar">
+            <svg class="i-lg" aria-hidden="true"><use href="#drop"/></svg>
+            <h3>Cane sugar, and less of it</h3>
+            <p>Sweet enough to taste like soda, light enough to finish the can.</p>
+          </article>
+          <article class="cell cell-batch">
+            <svg class="i-lg" aria-hidden="true"><use href="#flask"/></svg>
+            <h3>Mixed in small batches</h3>
+            <p>Short runs mean every batch tastes like the last one.</p>
+          </article>
+          <article class="cell cell-can">
+            <div class="cell-cans" aria-hidden="true"><div class="can can-sm" data-flavor="cola"></div><div class="can can-sm" data-flavor="grapefruit"></div></div>
+            <div>
+              <svg class="i-lg" aria-hidden="true"><use href="#recycle"/></svg>
+              <h3>Cans, not plastic</h3>
+              <p>Aluminum recycles again and again. Our packs use paper board, no plastic rings.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="pack" aria-labelledby="pack-title">
+      <div class="container pack">
+        <div class="pack-copy">
+          <h2 id="pack-title">Build your own 12-pack.</h2>
+          <p class="lede">Mix any flavors you like. Packs ship free.</p>
+          <ul class="picker" id="picker" role="list"></ul>
+        </div>
+        <div class="pack-box">
+          <div class="slots" id="slots" role="img" aria-label="Empty 12-pack"></div>
+          <p class="pack-status" id="pack-status" aria-live="polite">Pick 12 cans to fill your pack.</p>
+          <div class="pack-total"><span>12-pack</span><b>$36.00</b></div>
+          <button class="btn btn-primary btn-block" id="pack-add" type="button" disabled>Add pack to bag</button>
+          <div class="pack-tools">
+            <button class="link-btn" id="pack-random" type="button">Fill randomly</button>
+            <button class="link-btn" id="pack-clear" type="button">Clear</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote-section" aria-label="Customer review">
+      <figure class="container quote">
+        <blockquote><p>“The black cherry vanilla tastes like the fountain sodas my grandfather poured at his diner. Customers ask for it by name.”</p></blockquote>
+        <figcaption><b>Marisol Okafor</b>, owner of Hollow Tree Deli</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="stores" aria-labelledby="stores-title">
+      <div class="container stores">
+        <div>
+          <h2 id="stores-title">Find Parlor near you.</h2>
+          <p class="lede">Stocked in grocers, delis and cafés. Enter your ZIP code to see the closest ones.</p>
+          <form class="zip-form" id="zip-form" novalidate>
+            <label for="zip">ZIP code</label>
+            <div class="zip-row">
+              <input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" aria-describedby="zip-help zip-error">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+            <p class="help" id="zip-help">5 digits, for example 44113.</p>
+            <p class="error" id="zip-error" hidden></p>
+          </form>
+        </div>
+        <div class="results" id="results" aria-live="polite">
+          <div class="results-empty">
+            <svg class="i-lg" aria-hidden="true"><use href="#map-pin"/></svg>
+            <p>Stores near you will show up here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#top" aria-label="Parlor Soda Co., back to top">
+        <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="var(--accent)"/><path d="M14 30V10h8a6 6 0 0 1 0 12h-8" fill="none" stroke="var(--on-accent)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Parlor</span>
+      </a>
+      <ul class="footer-links" role="list">
+        <li><a href="#flavors">Flavors</a></li>
+        <li><a href="#pack">Build a pack</a></li>
+        <li><a href="#stores">Where to buy</a></li>
+      </ul>
+      <p class="small">Parlor Soda Co. is a demo brand. Store results are sample data.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
